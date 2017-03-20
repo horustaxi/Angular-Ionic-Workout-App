@@ -20,6 +20,13 @@ export class WorkoutsPage {
     });
   }
 
+  ionViewWillEnter(){
+    this.workoutService.getWorkouts().subscribe(workouts =>{
+      // console.warn(workouts)
+      this.workouts = workouts;
+    });
+  }
+
   workoutSelected(event, workout){
     this.navCtrl.push(WorkoutDetailsPage, {
       workout: workout

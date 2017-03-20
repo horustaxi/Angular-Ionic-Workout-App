@@ -23,4 +23,17 @@ export class WorkoutService{
         //     return this.http.get("https://api.mlab.com/api/1/databases?apiKey=MDU-1Q-osXy1GX98iWEVDCG64AIZhzZs")
         // .map(resp => resp.json()); 
     }
+
+    addWorkout(workout){
+      var headers = new Headers(); //need to set headers as we are making post request
+      headers.append('Content-Type', 'application/json');
+      return this.http.post(this.workoutsUrl+'?apiKey='+this.apiKey, JSON.stringify(workout), {headers: headers})
+        .map(result => result.json());
+    }
+
+    deleteWorkout(workoutId){
+        return this.http.delete(this.workoutsUrl+'/'+workoutId+'?apiKey='+this.apiKey)
+            .map(res => res.json());
+    }
+
 }
