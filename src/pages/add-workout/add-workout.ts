@@ -6,7 +6,7 @@ import { NavController } from 'ionic-angular';
   selector: 'add-workout',
   templateUrl: 'add-workout.html'
 })
-export class AddWorkouttPage {
+export class AddWorkoutPage {
 
   constructor(public navCtrl: NavController) {
 
